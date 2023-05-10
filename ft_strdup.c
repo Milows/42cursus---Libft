@@ -6,13 +6,13 @@
 /*   By: micabrer <micabrer@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 10:54:02 by micabrer          #+#    #+#             */
-/*   Updated: 2023/05/10 11:16:26 by micabrer         ###   ########.fr       */
+/*   Updated: 2023/05/10 11:56:02 by micabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/**/
+/*devuelve un puntero a una copia de 'src'*/
 char	*ft_strdup(const char *src)
 {
 	char	*dst;
