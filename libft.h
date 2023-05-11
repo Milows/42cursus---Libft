@@ -6,7 +6,7 @@
 /*   By: micabrer <micabrer@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:17:01 by micabrer          #+#    #+#             */
-/*   Updated: 2023/05/11 15:43:21 by micabrer         ###   ########.fr       */
+/*   Updated: 2023/05/11 16:55:44 by micabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <unistd.h>
 
 int		ft_isdigit(int c);
-/*int		ft_isalpha(int c);*/
-/*int		ft_isalnum(int c);*/
+int		ft_isalpha(int c);
+int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
@@ -46,5 +46,6 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 
 #endif
