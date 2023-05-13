@@ -11,9 +11,10 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 /**/
-static int count_words(const char *s, char c)
+static int	count_words(const char *s, char c)
 {
 	int	word_count;
 
@@ -29,13 +30,46 @@ static int count_words(const char *s, char c)
 	}
 	return (word_count);
 }
-char	**ft_split(char const *s, char c)
-{
 
+char	*extract_words(const char *s, char c)
+{
+	char	*word;
+	int		word_len;
+
+	word_len = 0;
+	while (s[word_len] && s[word_len] != c)
+		word_len++;
+	word = (char *)malloc(sizeof(char) * (word_len + 1));
+	if (!word)
+		return (NULL);
+	word[word_len] = '\0';
+	while (word_len--)
+		word[word_len] = s[word_len];
+	return (word);
 }
 
-int	main(void)
+char	**ft_split(char const *s, char c)
 {
-	printf("%i", count_words("holita, que tal", ' '));
-	return (0);
+	char	**split;
+	size_t	word_count;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	split = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!split)
+		return (NULL);
+	i = 0;
+	while (*s)
+	{
+		while (*s == c)
+			s++;
+		if (*s)
+			split[i++] = extract_words(s, c);
+		while (*s && *s != c)
+			s++;
+	}
+	split[i] = NULL;
+	return (split);
 }
