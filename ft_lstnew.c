@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: micabrer <micabrer@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 19:43:24 by micabrer          #+#    #+#             */
-/*   Updated: 2023/05/14 15:21:43 by micabrer         ###   ########.fr       */
+/*   Created: 2023/05/14 14:34:35 by micabrer          #+#    #+#             */
+/*   Updated: 2023/05/14 22:43:31 by micabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*copia n bytes de src a dst*/
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+/*La variable miembro ’content’ se inicializa con el contenido 
+del parámetro ’content’. La variable ’next’, con NULL.*/
+t_list	*ft_lstnew(void *content)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	t_list	*new_node;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d == s || !n)
-		return (d);
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node -> content = content;
+	new_node -> next = NULL;
+	return (new_node);
 }

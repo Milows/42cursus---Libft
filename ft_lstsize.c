@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: micabrer <micabrer@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/09 19:43:24 by micabrer          #+#    #+#             */
-/*   Updated: 2023/05/14 15:21:43 by micabrer         ###   ########.fr       */
+/*   Created: 2023/05/14 20:04:07 by micabrer          #+#    #+#             */
+/*   Updated: 2023/05/14 22:52:53 by micabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*copia n bytes de src a dst*/
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+/*Cuenta el número de nodos de una lista.*/
+int	ft_lstsize(t_list *lst)
 {
-	unsigned char		*d;
-	const unsigned char	*s;
+	int	size;
 
-	d = (unsigned char *)dst;
-	s = (const unsigned char *)src;
-	if (d == s || !n)
-		return (d);
-	while (n--)
-		*d++ = *s++;
-	return (dst);
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst -> next;
+	}
+	return (size);
 }

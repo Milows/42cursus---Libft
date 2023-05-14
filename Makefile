@@ -8,7 +8,12 @@ SRCS = ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c\
 	ft_putendl_fd.c ft_pntnbr_fd.c ft_strmapi.c ft_striteri.c ft_strjoin.c\
 	ft_itoa.c ft_strtrim.c ft_split.c\
 
+BNS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c\
+	ft_lstadd_back.c\
+
 OBJS = $(SRCS:.c=.o)
+
+BNS_OBJS = $(BNS_SRCS:.c=.o) 
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
@@ -19,11 +24,15 @@ $(NAME) : $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 
+bonus : $(BNS_OBJS)
+	ar rc $(NAME) $(BNS_OBJS)
+	ranlib $(NAME)
+
 %.o: %.c
 	$(CC) -c $(CFLAGS) $<
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BNS_OBJS)
 
 fclean: clean
 	rm -f $(NAME)
