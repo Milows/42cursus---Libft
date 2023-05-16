@@ -6,7 +6,7 @@
 /*   By: micabrer <micabrer@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 17:17:01 by micabrer          #+#    #+#             */
-/*   Updated: 2023/05/15 00:10:31 by micabrer         ###   ########.fr       */
+/*   Updated: 2023/05/15 03:29:12 by micabrer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
 #endif
